@@ -1,11 +1,11 @@
 apiVersion : V1
 kind : Service
 metadata :
-  name : mon-site-web-service
+  name : dotnet-app-service
 spec :
   selector:
-    app : mon-site-web
+    app : dotnet-app
   type : LoadBalancer
   ports :
-  - port: 80
+  - port: 8080
     targetPort : 80

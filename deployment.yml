@@ -2,20 +2,20 @@ apiVersion: apps/v1
 
 kind: Deployment  
 metadata:
-  name: mon-site-web-deployment
+  name: dotnet-app-deployment
   
 spec:
   replicas : 5
   selector:
     matchLabels:
-      app: mon-site-web 
+      app: dotnet-app
   template:
     metadata:
       labels:
-        app: mon-site-web 
+        app: dotnet-app
     spec:
       containers:
-      - name: mon-site-web
+      - name: dotnet-app
         image: sabysaby/image-dotnet:latest 
         ressources:
           limits:
