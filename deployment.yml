@@ -1,0 +1,25 @@
+apiVersion: apps/v1 
+
+kind: Deployment  
+metadata:
+  name: mon-site-web-deployment
+  
+spec:
+  replicas : 5
+  selector:
+    matchLabels:
+      app: mon-site-web 
+  template:
+    metadata:
+      labels:
+        app: mon-site-web 
+    spec:
+      containers:
+      - name: mon-site-web
+        image: sabysaby/image-dotnet:latest 
+        ressources:
+          limits:
+            memory: "128Mi" 
+            cpu: "500m" 
+        ports:
+        - containerPort: 80

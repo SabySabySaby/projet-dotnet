@@ -1,18 +1,4 @@
 Créaction Dockerfile
-```bash
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS builder
-WORKDIR /app
-COPY DotNet.Docker.csproj .
-RUN  dotnet restore DotNet.Docker.csproj
-COPY . ./
-RUN dotnet publish -o /app/build -c Release
-
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS publisher
-COPY --from=builder /app/build .
-ENTRYPOINT [ "dotnet", "DotNet.Docker.dll" ]
-
-```
-
 Sauvegarder le Dockerfile **Ctrl+s**
 
 
@@ -26,3 +12,12 @@ docker ps -a
 docker push "repositorie"
 ```
 Vérification de la création de l'image sur : **localhost/weatherforecast**
+
+Création des fichiers deployment.yml et service.yml
+Sauvegarder les fichiers **ctrl+s**
+
+Lancer la commande dans le terminal :
+```bash
+kubectl apply -f .\ressources-files\service.yml,.\ressouces-files\deployment.yml
+
+```
